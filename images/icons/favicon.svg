@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="31 51.68 298 298" role="img" aria-label="Automotive Survival">
+  <title>Automotive Survival</title>
+  <rect x="31" y="51.68" width="298" height="298" rx="60" fill="#111111"/>
+  <circle cx="180" cy="200.68" r="135" fill="#222222" stroke="#E59400" stroke-width="12"/>
+  <g transform="translate(180 200.68) scale(1.05) translate(-180 -200.68)"><g fill="#E59400" transform="translate(-70 -59.32)">
+    <path d="M244,155 A16,16 0 1,0 244,187 Z"/>
+    <path d="M244,195 L215,195 C200,195 195,205 195,220 L195,290 L210,290 L210,355 C210,365 225,365 225,355 L225,285 L244,285 Z"/>
+    <path d="M256,155 A16,16 0 0,1 256,187 Z"/>
+    <path d="M256,195 L275,195 L295,230 L320,220 C325,218 330,225 326,230 L305,245 L285,285 L256,285 Z"/>
+    <path d="M256,285 L275,285 L275,355 C275,365 260,365 260,355 Z"/>
+    <path d="M322,215 A12,12 0 1,1 332,235 L325,228 A6,6 0 1,0 318,220 Z"/>
+  </g></g>
+</svg>

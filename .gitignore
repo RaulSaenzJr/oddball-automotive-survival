@@ -1,11 +1,25 @@
-# Ignore everything by default
-*
+# ----------------------------------------------------------
+# Guide to Automotive Survival
+# Everything is committed EXCEPT what's listed below.
+# ----------------------------------------------------------
 
-#Allow directories
-!*/
+# Private notes, texts, drafts, and raw photos from Cleveland.
+# Never committed, so never deployed to Netlify.
+private-content/
 
-!index.html
-!styles.css
-!script.js
-!.gitignore
-!README.md
+# Secrets (Stripe keys, etc.) — these go in Netlify's env settings, not git
+.env
+.env.*
+
+# Netlify CLI local state
+.netlify/
+
+# Node (if we add serverless functions later)
+node_modules/
+
+# Editor / OS clutter
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
