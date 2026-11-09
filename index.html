@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guide to Automotive Survival | Coming Soon</title>
+  <title>Guide to Automotive Survival | Weekend Car Classes in Austin, TX</title>
   <meta name="description" content="Guide to Automotive Survival — hands-on weekend car classes in Austin, TX, taught by Cleveland Shinn of Oddball Kustom Garage. Registration opening soon.">
-  <meta name="theme-color" content="#0b0b0f">
+  <meta name="theme-color" content="#111111">
 
   <!-- Social preview -->
   <meta property="og:title" content="Guide to Automotive Survival">
@@ -22,90 +22,209 @@
   <link rel="icon" href="images/icons/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
 
+  <!-- Fonts: Russo One (matches the logo lettering) + Barlow for body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Barlow+Condensed:wght@400;600;800&family=Yellowtail&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600&display=swap" rel="stylesheet">
 
+  <link rel="preload" as="image" href="video/hero-poster.jpg">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Rhinestone sparkle layer (filled by script.js) -->
-  <div class="sparkles" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="tape tape--top" aria-hidden="true">
-    <span>UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦&nbsp;</span>
-    <span>UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦ UNDER CONSTRUCTION ✦&nbsp;</span>
-  </div>
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top" aria-label="Guide to Automotive Survival — home">
+        <img class="brand__mark" src="images/brand/mark.svg" alt="" width="56" height="53">
+        <span class="brand__name">
+          <span class="brand__small">Guide to</span>
+          <span class="brand__big">Automotive Survival</span>
+        </span>
+      </a>
 
-  <main class="stage">
-    <p class="kicker">Austin, Texas ✦ Weekend Car Classes</p>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+      </button>
 
-    <h1 class="title">
-      <span class="title__small">The</span>
-      <span class="title__guide">Guide to</span>
-      <span class="title__main chrome" data-text="Automotive">Automotive</span>
-      <span class="title__main chrome" data-text="Survival">Survival</span>
-    </h1>
-
-    <svg class="pinstripe" viewBox="0 0 400 40" aria-hidden="true">
-      <path d="M10 20 C 80 -5, 130 45, 200 20 C 270 -5, 320 45, 390 20" />
-      <path d="M60 20 C 110 5, 150 35, 200 20 C 250 5, 290 35, 340 20" />
-      <circle cx="200" cy="20" r="4" />
-    </svg>
-
-    <p class="tagline">
-      Learn your ride before it leaves you stranded.<br>
-      Hands-on weekend classes — <strong>Saturdays &amp; Sundays</strong> in South Austin.
-    </p>
-
-    <div class="gauge" role="img" aria-label="Site build progress: warming up">
-      <div class="gauge__dial">
-        <div class="gauge__needle"></div>
-        <div class="gauge__hub"></div>
-      </div>
-      <p class="gauge__label">Shop's warming up — registration opens soon</p>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#classes">Classes</a></li>
+          <li><a href="#instructor">Instructor</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a href="#notify">Gift Cards</a></li>
+        </ul>
+        <a class="btn btn--pill btn--amber site-nav__cta" href="#notify">Save My Seat</a>
+      </nav>
     </div>
+  </header>
 
-    <section class="notify" aria-labelledby="notify-heading">
-      <h2 id="notify-heading">Save me a seat</h2>
-      <p>Drop your info and we'll holler when class dates go live.</p>
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__band" aria-hidden="true"></div>
 
-      <form name="notify" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="notify__form" id="notify-form">
-        <input type="hidden" name="form-name" value="notify">
-        <p class="hidden-field">
-          <label>Don't fill this out: <input name="bot-field"></label>
-        </p>
-        <label class="sr-only" for="notify-name">Name</label>
-        <input id="notify-name" type="text" name="name" placeholder="Your name" autocomplete="name" required>
-        <label class="sr-only" for="notify-email">Email</label>
-        <input id="notify-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
-        <button type="submit" class="btn">Count Me In</button>
-      </form>
-      <p class="notify__status" id="notify-status" role="status" aria-live="polite"></p>
+      <div class="hero__card">
+        <video class="hero__video" id="hero-video" autoplay muted loop playsinline preload="metadata"
+               poster="video/hero-poster.jpg" aria-hidden="true">
+          <source src="video/hero-loop-480.mp4" type="video/mp4" media="(max-width: 768px)">
+          <source src="video/hero-loop-720.mp4" type="video/mp4">
+        </video>
+        <div class="hero__shade" aria-hidden="true"></div>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow">Weekend car classes &middot; Austin, TX</p>
+          <h1 class="hero__title" id="hero-title">Don't Get<br>Stranded.</h1>
+          <p class="hero__lede">Hands-on classes that teach you to handle your car when it counts — on the roadside, in the driveway, and at the shop counter.</p>
+          <div class="hero__actions">
+            <a class="btn btn--pill btn--amber" href="#notify">Save My Seat</a>
+            <a class="btn btn--pill btn--ghost" href="#notify">Gift Cards</a>
+          </div>
+          <button class="hero__watch" type="button" data-open-video>
+            <span class="hero__play" aria-hidden="true"></span>
+            Watch the full roadside rescue
+          </button>
+        </div>
+
+        <button class="hero__pause" type="button" id="hero-pause" aria-pressed="false">
+          <span class="sr-only">Pause background video</span>
+          <span class="hero__pause-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </section>
 
-    <p class="byline">
-      Taught by <span class="script">Cleveland Shinn</span><br>
-      <span class="byline__sub">of Oddball Kustom Garage</span>
-    </p>
+    <!-- ================= TICKER ================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Site under construction</span><span>Saturdays &amp; Sundays</span><span>South Austin</span><span>Know your car</span><span>Register online soon</span><span>Gift cards coming</span><span>The answers are in the class</span>
+        <span>Site under construction</span><span>Saturdays &amp; Sundays</span><span>South Austin</span><span>Know your car</span><span>Register online soon</span><span>Gift cards coming</span><span>The answers are in the class</span>
+      </div>
+    </div>
+
+    <!-- ================= WHAT'S COMING ================= -->
+    <section class="section" id="classes" aria-labelledby="classes-title">
+      <div class="container">
+        <p class="eyebrow">The shop's warming up</p>
+        <h2 class="section__title" id="classes-title">What's Coming</h2>
+
+        <ul class="cards">
+          <li class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="32" rx="4"/><path d="M6 19h36M15 6v8M33 6v8"/><path d="M15 28h6M27 28h6M15 35h6"/></svg>
+            </div>
+            <h3>Weekend Classes</h3>
+            <p>The Guide to Automotive Survival runs on <strong>Saturdays and Sundays</strong>, so you can learn without missing work.</p>
+          </li>
+          <li class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="5" y="12" width="38" height="26" rx="4"/><path d="M5 20h38"/><path d="M12 30h10"/></svg>
+            </div>
+            <h3>Register &amp; Pay Online</h3>
+            <p>Pick your date, grab your seat, and pay right here. Online registration opens soon.</p>
+          </li>
+          <li class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="6" y="18" width="36" height="24" rx="3"/><path d="M4 12h40v6H4zM24 12v30"/><path d="M24 12c-4-8-14-8-12-1 1 3 7 3 12 1zM24 12c4-8 14-8 12-1-1 3-7 3-12 1z"/></svg>
+            </div>
+            <h3>Gift Cards</h3>
+            <p>Know a new driver, a college kid, or someone who's always calling for a jump? Give them a class.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= INSTRUCTOR ================= -->
+    <section class="section section--alt" id="instructor" aria-labelledby="instructor-title">
+      <div class="container split">
+        <img class="split__emblem" src="images/brand/emblem.svg" alt="Guide to Automotive Survival emblem" width="320" height="320" loading="lazy">
+        <div class="split__text">
+          <p class="eyebrow">Your instructor</p>
+          <h2 class="section__title" id="instructor-title">Taught by Cleveland Shinn</h2>
+          <p class="lead">of <strong>Oddball Kustom Garage</strong> in South Austin.</p>
+          <p>Cleveland has spent years keeping Austin's daily drivers, classics, and one-of-a-kind builds on the road. Now he's teaching what he knows, so you're never at the mercy of a breakdown.</p>
+          <p class="split__links">
+            <a href="https://www.tiktok.com/@oddballkustomgarage" target="_blank" rel="noopener">TikTok</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="https://www.instagram.com/oddballkustomgarage/" target="_blank" rel="noopener">Instagram</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="https://www.facebook.com/oddballkustom/" target="_blank" rel="noopener">Facebook</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NOTIFY ================= -->
+    <section class="section" id="notify" aria-labelledby="notify-title">
+      <div class="container">
+        <div class="notify">
+          <h2 class="section__title" id="notify-title">Save Me a Seat</h2>
+          <p>Registration and gift cards are almost ready. Drop your info and we'll let you know the moment class dates go live.</p>
+
+          <form name="notify" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="notify__form" id="notify-form">
+            <input type="hidden" name="form-name" value="notify">
+            <p class="sr-only">
+              <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
+            <label class="sr-only" for="notify-name">Name</label>
+            <input id="notify-name" type="text" name="name" placeholder="Your name" autocomplete="name" required>
+            <label class="sr-only" for="notify-email">Email</label>
+            <input id="notify-email" type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+            <label class="sr-only" for="notify-interest">I'm interested in</label>
+            <select id="notify-interest" name="interest">
+              <option value="class">A class for me</option>
+              <option value="gift-card">A gift card</option>
+              <option value="both">Both</option>
+            </select>
+            <button type="submit" class="btn btn--pill btn--amber">Count Me In</button>
+          </form>
+          <p class="notify__status" id="notify-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VISIT ================= -->
+    <section class="section section--alt" id="visit" aria-labelledby="visit-title">
+      <div class="container visit">
+        <div>
+          <p class="eyebrow">Where class happens</p>
+          <h2 class="section__title" id="visit-title">South Austin</h2>
+          <address>
+            4424 Brandt Rd<br>
+            Austin, TX 78744
+          </address>
+        </div>
+        <a class="btn btn--pill btn--ghost" href="https://maps.google.com/?q=4424+Brandt+Rd,+Austin,+TX+78744" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer">
-    <address>
-      <a href="https://maps.google.com/?q=4424+Brandt+Rd,+Austin,+TX+78744" target="_blank" rel="noopener">4424 Brandt Rd, Austin, TX 78744</a>
-    </address>
-    <nav class="footer__links" aria-label="Social">
-      <a href="https://www.instagram.com/oddballkustomgarage/" target="_blank" rel="noopener">Instagram</a>
-      <span aria-hidden="true">✦</span>
-      <a href="https://www.facebook.com/oddballkustom/" target="_blank" rel="noopener">Facebook</a>
-    </nav>
-    <p class="footer__copy">&copy; <span id="year">2026</span> Guide to Automotive Survival</p>
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <img class="site-footer__logo" src="images/brand/stacked.svg" alt="Guide to Automotive Survival" width="220" height="155" loading="lazy">
+      <div class="site-footer__info">
+        <p>4424 Brandt Rd, Austin, TX 78744</p>
+        <p class="site-footer__social">
+          <a href="https://www.tiktok.com/@oddballkustomgarage" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.instagram.com/oddballkustomgarage/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/oddballkustom/" target="_blank" rel="noopener">Facebook</a>
+        </p>
+        <p class="site-footer__copy">&copy; <span id="year">2026</span> Guide to Automotive Survival</p>
+      </div>
+    </div>
   </footer>
 
-  <div class="tape tape--bottom" aria-hidden="true">
-    <span>KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦&nbsp;</span>
-    <span>KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦ KNOW YOUR CAR ✦&nbsp;</span>
-  </div>
+  <!-- ================= FULL VIDEO MODAL ================= -->
+  <dialog class="video-modal" id="video-modal" aria-label="Roadside rescue video">
+    <button class="video-modal__close" type="button" data-close-video>
+      <span class="sr-only">Close video</span>&times;
+    </button>
+    <video class="video-modal__video" id="full-video" controls playsinline preload="none" poster="video/hero-poster.jpg">
+      <source src="video/roadside-rescue-full.mp4" type="video/mp4">
+    </video>
+  </dialog>
 
   <script src="js/script.js"></script>
 </body>

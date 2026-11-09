@@ -1,29 +1,91 @@
-// Guide to Automotive Survival — Under Construction page
+// Guide to Automotive Survival
 
 // ---------- Footer year ----------
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ---------- Rhinestone sparkles (a nod to the Stoned Square Body) ----------
-(function addSparkles() {
-  const layer = document.querySelector(".sparkles");
-  if (!layer) return;
+// ---------- Mobile nav toggle ----------
+(function mobileNav() {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("site-nav");
+  if (!toggle || !nav) return;
 
-  const colors = ["#ffffff", "#ffcc00", "#19d3c5", "#e0115f", "#ff7a18", "#c9d1d9"];
-  const count = window.innerWidth < 600 ? 22 : 45;
-  const frag = document.createDocumentFragment();
+  const setOpen = (open) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    nav.classList.toggle("is-open", open);
+  };
 
-  for (let i = 0; i < count; i++) {
-    const s = document.createElement("span");
-    s.className = "sparkle";
-    s.style.left = Math.random() * 100 + "%";
-    s.style.top = Math.random() * 100 + "%";
-    s.style.setProperty("--size", 6 + Math.random() * 12 + "px");
-    s.style.setProperty("--color", colors[Math.floor(Math.random() * colors.length)]);
-    s.style.setProperty("--dur", 2 + Math.random() * 4 + "s");
-    s.style.setProperty("--delay", Math.random() * 5 + "s");
-    frag.appendChild(s);
+  toggle.addEventListener("click", () => {
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  // Close after choosing a link, or on Escape
+  nav.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setOpen(false);
+  });
+})();
+
+// ---------- Hero background video ----------
+(function heroVideo() {
+  const video = document.getElementById("hero-video");
+  const button = document.getElementById("hero-pause");
+  if (!video || !button) return;
+
+  const label = button.querySelector(".sr-only");
+  const setPaused = (paused) => {
+    button.setAttribute("aria-pressed", String(paused));
+    label.textContent = paused ? "Play background video" : "Pause background video";
+  };
+
+  // Respect "reduce motion": show the poster frame instead of autoplaying
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reduceMotion.matches) {
+    video.removeAttribute("autoplay");
+    video.pause();
+    setPaused(true);
   }
-  layer.appendChild(frag);
+
+  button.addEventListener("click", () => {
+    if (video.paused) {
+      video.play().catch(() => {});
+      setPaused(false);
+    } else {
+      video.pause();
+      setPaused(true);
+    }
+  });
+})();
+
+// ---------- Full video modal ----------
+(function videoModal() {
+  const dialog = document.getElementById("video-modal");
+  const full = document.getElementById("full-video");
+  const hero = document.getElementById("hero-video");
+  if (!dialog || !full || typeof dialog.showModal !== "function") return;
+
+  document.querySelectorAll("[data-open-video]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      dialog.showModal();
+      hero && hero.pause();
+      full.play().catch(() => {});
+    });
+  });
+
+  dialog.querySelector("[data-close-video]").addEventListener("click", () => dialog.close());
+
+  // Click on the dark backdrop closes it
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener("close", () => {
+    full.pause();
+    const heroPaused = document.getElementById("hero-pause")?.getAttribute("aria-pressed") === "true";
+    if (hero && !heroPaused) hero.play().catch(() => {});
+  });
 })();
 
 // ---------- "Save me a seat" form (Netlify Forms, submitted without leaving the page) ----------
@@ -37,7 +99,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
     const button = form.querySelector("button");
     button.disabled = true;
     status.classList.remove("is-error");
-    status.textContent = "Revving up…";
+    status.textContent = "Sending…";
 
     try {
       const body = new URLSearchParams(new FormData(form)).toString();
@@ -49,10 +111,10 @@ document.getElementById("year").textContent = new Date().getFullYear();
       if (!response.ok) throw new Error(`Status ${response.status}`);
 
       form.reset();
-      status.textContent = "You're on the list! We'll holler when class dates drop. ✦";
+      status.textContent = "You're on the list! We'll let you know when class dates go live.";
     } catch (error) {
       status.classList.add("is-error");
-      status.textContent = "Engine stalled — please try again in a minute.";
+      status.textContent = "Something went wrong — please try again in a minute.";
       console.error("Notify form error:", error);
     } finally {
       button.disabled = false;
