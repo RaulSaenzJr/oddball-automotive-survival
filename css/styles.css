@@ -629,8 +629,73 @@ a:hover {
 }
 
 #classes .eyebrow,
-#classes .section__title {
+#classes .section__title,
+#reviews .eyebrow,
+#reviews .section__title {
   text-align: center;
+}
+
+/* ---------- Reviews ---------- */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.review {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Big amber quote mark in the corner */
+.review::before {
+  content: "\201C";
+  position: absolute;
+  top: 0.2rem;
+  right: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: rgba(229, 148, 0, 0.18);
+}
+
+.review__stars {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  color: var(--amber);
+}
+
+.review__quote {
+  flex: 1;
+  margin: 0 0 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.review__name {
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-cond);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.review__name span {
+  color: var(--ink-dim);
+  font-weight: 500;
 }
 
 /* Cards */
